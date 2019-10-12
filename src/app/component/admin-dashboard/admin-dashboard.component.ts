@@ -27,7 +27,7 @@ export class AdminDashboardComponent implements OnInit {
         url: "http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList",
         type: 'GET',
         // dataType: "json",
-        success: function (response) {
+        success: (response)=> {
           this.records=response.data.data;
           // console.log(this.records);
          var user_data='';
@@ -40,6 +40,9 @@ export class AdminDashboardComponent implements OnInit {
            user_data +=  '<td>'+ value.service + '</td>';
            user_data += '</tr>';
          });
+         //searching users in the table
+
+    //    vb 
 
          this.countAdvance=this.records.filter(function (u)
           {
@@ -58,19 +61,12 @@ export class AdminDashboardComponent implements OnInit {
         
          
         }, 
-        error: function (error){
+        error: (error)=>{
           console.log(error);
         }
       });
 
-       //searching users in the table
-
-      //  $("#search").on("keyup", function() {
-      //   var value:string = $(this).val().toLowerCase();
-      //   $("#user_table").filter(function() {
-      //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      //   });
-    })
+       
   
 
 }

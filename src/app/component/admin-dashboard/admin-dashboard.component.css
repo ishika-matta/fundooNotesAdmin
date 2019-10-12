@@ -13,3 +13,7 @@
 .table.table-bordered{
     border: 2px solid midnightblue;
 }
+
+.navbar-brand{  
+    background-color:white; 
+}

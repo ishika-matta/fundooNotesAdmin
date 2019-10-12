@@ -1,11 +1,16 @@
 
 <ul class="navbar navbar-dark bg-dark">
     
-    <a class="navbar-brand" href="#">Fundoo Notes App admin</a>
-    <a class="navbar-brand" href="#">Un Approved Answers</a>
-    <a class="navbar-brand" href="#">User List</a>
-    <a class="navbar-brand" href="#">Orders</a>
-    <a class="navbar-brand" href="#" tabindex="-1">Logout</a>
+    <a class="navbar-brand" >Fundoo Notes App admin</a>
+    <a class="navbar-brand" >Un Approved Answers</a>
+    <a class="navbar-brand" >User List</a>
+    <a class="navbar-brand" >Orders</a>
+    <a class="navbar-brand">
+    
+
+    <button *ngIf="!auth.isLoggednIn()" routerLink="/login">Login</button>
+ <button *ngIf="auth.isLoggednIn()" (click)="auth.logout()">LogOut</button>
+</a>
 
 </ul>
 
