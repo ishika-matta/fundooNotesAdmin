@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminInterface } from '../interface/admin.model';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
   adminData: any = new AdminInterface();
   result: any;
 
-  constructor() { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
 
@@ -24,22 +26,28 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
+    
 
-    const adminObj = {
-      email: $("#adminEmail").val(),
-      password: $("#adminPassword").val()
-    };
+      this.adminData = {
+        email: $("#adminEmail").val(),
+        password: $("#adminPassword").val()
+      };
 
 
-    $.ajax({
-      url: "http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin",
-      data: adminObj,
-      type: 'POST',
-      dataType: "json",
-      success: function (response) {
-        console.log(response);
-      }
+      $.ajax({
+        url: "http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin",
+        data: this.adminData,
+        type: 'POST',
+        dataType: "json",
+        success: function (response) {
+          console.log(response);
+          localStorage.setItem('id', response.id);
+          this.auth.sendToken(response.id);
+          //window.location.href = "http://localhost:4200/admin-dashboard";
+           this.router.navigate(['/admin-dashboard']);
+        }
 
-    });
+      });
+ 
   }
 }

@@ -1,0 +1,15 @@
+.card{
+    background-color: lightblue;
+    margin:10px;
+}
+.form-control{
+    margin:10px;
+}
+.table {
+    width: 50%;
+    margin: 0 auto !important;
+}
+
+.table.table-bordered{
+    border: 2px solid midnightblue;
+}
