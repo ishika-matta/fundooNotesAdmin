@@ -1,15 +1,12 @@
 
-<ul class="navbar navbar-dark bg-dark">
+<ul class="navbar navbar-dark bg-secondary">
     
-    <a class="navbar-brand" >Fundoo Notes App admin</a>
+    <a class="navbar-brand" (click)="getAllUsers()">Fundoo Notes App admin</a>
     <a class="navbar-brand" >Un Approved Answers</a>
     <a class="navbar-brand" >User List</a>
     <a class="navbar-brand" >Orders</a>
     <a class="navbar-brand">
-    
-
-    <button *ngIf="!auth.isLoggednIn()" routerLink="/login">Login</button>
- <button *ngIf="auth.isLoggednIn()" (click)="auth.logout()">LogOut</button>
+      <button type="button"  class="btn btn-info" (click)="onLogout()">Logout</button>
 </a>
 
 </ul>
@@ -17,7 +14,7 @@
 <div class="container">
 <div class="row justify-content-center">
     <div class="col-4">
-      <div class="card">
+      <div class="card" (click)="onAdvance()">
         <div class="card-body">
           <h5 class="card-title align-items-center d-flex justify-content-center">Advance Users</h5>
           <p class="card-text align-items-center d-flex justify-content-center" id="countAdvance"></p>
@@ -26,10 +23,10 @@
     </div>
 
     <div class="col-4">
-      <div class="card">
+      <div class="card" (click)="onBasic()">
         <div class="card-body">
           <h5 class="card-title align-items-center d-flex justify-content-center">Basic Users</h5>
-          <p class="card-text align-items-center d-flex justify-content-center" id="countBasic"></p>
+          <p class="card-text-center align-items-center d-flex justify-content-center" id="countBasic"></p>
         </div>
       </div>
     </div>
@@ -40,7 +37,7 @@
 </div>
 <div class="table-responsive-sm">
  
- <table class="table table-bordered" id="user_table">
+ <table class="table table-bordered table-striped" id="user_table">
   <thead class="thead-light">
     <tr>
       <th scope="col">#</th>
@@ -50,7 +47,21 @@
       <th scope="col">Service</th>
     </tr>
   </thead>
+  <tbody id="searchUser">
+
+  </tbody>
 </table>  
+</div>
+
+
+<div class="align-items-center d-flex justify-content-center">
+  <ul class="pagination">
+  <li class="page-item"><a class="page-link">Previous</a></li>
+  <li class="page-item"><a class="page-link" >1</a></li>
+  <li class="page-item"><a class="page-link" >2</a></li>
+  <li class="page-item"><a class="page-link">3</a></li>
+  <li class="page-item"><a class="page-link" >Next</a></li>
+  </ul>
 </div>
 
 
