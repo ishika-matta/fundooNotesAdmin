@@ -1,3 +1,20 @@
 .card{
     margin-top:20%;
 }
+
+.login{
+    background-image:url('/src/assets/backgroungd-pic.jpeg');
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.card{
+    border-radius: 20px;
+}
+
+.btn{
+    margin-left: 40%;
+    margin-right:20%;
+}

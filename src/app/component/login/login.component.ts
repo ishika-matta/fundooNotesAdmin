@@ -17,65 +17,31 @@ export class LoginComponent implements OnInit {
   constructor( private router: Router, public auth: AuthService) { }
 
   ngOnInit() {
-      $("#adminLogin").click(function (e) {
+      $('#adminLogin').click(function (e) {
         e.preventDefault();
-      })
-    
+      });
+
   }
 
-
-  // onLogin() {
-  //     this.adminData = {
-  //       email: $("#adminEmail").val(),
-  //       password: $("#adminPassword").val()
-  //     };
-
-
-  //     // $.ajax({
-  //     //   url: "http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin",
-  //     //   data: this.adminData,
-  //     //   type: 'POST',
-  //     //   dataType: "json",
-  //     //   success: function (response) {
-  //     //     console.log(response);
-  //     //     this.router.navigate(['admin-dashboard']);
-  //     //     //localStorage.setItem('id', response.id);
-  //     //     //this.auth.sendToken(response.id);
-  //     //     //window.location.href = "http://localhost:4200/admin-dashboard";
-         
-  //     //   }, error: function(error){
-  //     //     console.log(error);
-  //     //   }
-
-  //     // });
-
-  //     // this.router.navigate(['admin-dashboard']);
-
-
-     
- 
-  // }
-
-
-  onLogin(){
+  onLogin() {
 
     this.adminData = {
-      email: $("#adminEmail").val(),
-      password: $("#adminPassword").val()
+      email: $('#adminEmail').val(),
+      password: $('#adminPassword').val()
     };
   $.ajax({
-    url: "http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin",
+    url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin',
     data: this.adminData,
     type: 'POST',
-    dataType: "json",
-    success: (response)=> {
+    dataType: 'json',
+    success: (response) => {
       console.log(response);
       this.router.navigate(['admin-dashboard']);
       localStorage.setItem('id', response.id);
       this.auth.sendToken(response.id);
       //window.location.href = "http://localhost:4200/admin-dashboard";
-     
-    }, error: (error)=> {
+
+    }, error: (error) => {
       console.log(error);
     }
 

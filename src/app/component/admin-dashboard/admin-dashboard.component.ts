@@ -11,22 +11,22 @@ export class AdminDashboardComponent implements OnInit {
   countAdvance: any;
   countBasic: any;
 
-  constructor(public auth:AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
     this.getAllUsers();
   }
-  getAllUsers(){
+  getAllUsers() {
 
     $(document).ready(function () {
       $.ajax({
-        url: "http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList",
+        url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList',
         type: 'GET',
         // dataType: "json",
         success: (response) => {
           this.records = response.data.data;
           console.log(this.records);
-          var user_data = '';
+          let user_data = '';
           user_data += '<tbody id="searchUser">';
           $.each(this.records, function (key, value) {
             user_data += '<tr>';
@@ -41,20 +41,20 @@ export class AdminDashboardComponent implements OnInit {
           $('table tbody').replaceWith(user_data);
 
           this.countAdvance = this.records.filter(function (u) {
-            return u.service == "advance"
+            return u.service == 'advance';
           }).length;
           $('#countAdvance').replaceWith(this.countAdvance);
-         
-          
+
+
 
           this.countBasic = this.records.filter(function (u) {
-            return u.service == "basic" || u.service == "Basic"
+            return u.service == 'basic' || u.service == 'Basic';
           }).length;
           $('#countBasic').replaceWith(this.countBasic);
 
-          $("#search").on("keyup", function () {
-            var value = $(this).val().toString().toLowerCase();
-            $("#searchUser tr").filter(function () {
+          $('#search').on('keyup', function () {
+            const value = $(this).val().toString().toLowerCase();
+            $('#searchUser tr').filter(function () {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
               return true;
             });
@@ -64,26 +64,26 @@ export class AdminDashboardComponent implements OnInit {
           console.log(error);
         }
       });
-    })
+    });
   }
 
-onLogout(){
+onLogout() {
   this.auth.logout();
 }
 
   onBasic() {
     $(document).ready(function () {
       $.ajax({
-        url: "http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList",
+        url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList',
         type: 'GET',
         // dataType: "json",
         success: (response) => {
           this.records = response.data.data;
           console.log(this.records);
           this.records = $.grep(this.records, function (n, index) {
-            return n["service"] == "basic" || n["service"] == "Basic";
+            return n['service'] == 'basic' || n['service'] == 'Basic';
           });
-          var user_data = '';
+          let user_data = '';
           user_data += '<tbody id="searchUser">';
           $.each(this.records, function (key, value) {
             user_data += '<tr>';
@@ -98,24 +98,24 @@ onLogout(){
 
           $('table tbody').replaceWith(user_data);
         }
-      })
-    })
+      });
+    });
   }
 
-  
-onAdvance(){
+
+onAdvance() {
   $(document).ready(function () {
     $.ajax({
-      url: "http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList",
+      url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/getAdminUserList',
       type: 'GET',
       // dataType: "json",
       success: (response) => {
         this.records = response.data.data;
         console.log(this.records);
         this.records = $.grep(this.records, function (n, index) {
-          return n["service"] == "advance";
+          return n['service'] == 'advance';
         });
-        var user_data = '';
+        let user_data = '';
         user_data += '<tbody id="searchUser">';
         $.each(this.records, function (key, value) {
           user_data += '<tr>';
@@ -130,13 +130,13 @@ onAdvance(){
 
         $('table tbody').replaceWith(user_data);
       }
-    })
-  })
+    });
+  });
 
 }
 
 
- 
+
 
 }
 
