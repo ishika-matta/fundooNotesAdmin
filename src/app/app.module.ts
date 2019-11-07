@@ -7,12 +7,14 @@ import { LoginComponent } from './component/login/login.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { AuthService } from '../../src/app/services/auth.service';
 import { AuthGuard } from './auth.guard';
+import { UnapprovedComponent } from './component/unapproved/unapproved.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    UnapprovedComponent
   ],
   imports: [
     BrowserModule,

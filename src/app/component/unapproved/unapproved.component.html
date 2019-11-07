@@ -1,0 +1,45 @@
+<ul class="navbar navbar-dark bg-secondary">
+    
+  <a class="navbar-brand" (click)="onAdminHome()">Fundoo Notes App admin</a>
+  <a class="navbar-brand" (click)="onUnapprovedAnswers()">Un Approved Answers</a>
+  <a class="navbar-brand" >User List</a>
+  <a class="navbar-brand" >Orders</a>
+  <a class="navbar-brand">
+    <button type="button"  class="btn btn-info" (click)="onLogout()">Logout</button>
+</a>
+</ul>
+
+ <div class="table-responsive-sm">
+ 
+  <table class="table table-bordered table-striped">
+   <thead class="thead-light">
+     <tr>
+        <th scope="col">Answers</th>
+        <th scope="col">Action</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let answer of answers">
+       <td innerHTML="{{answer.message}}"></td>
+       <td>
+          <button type="button" class="btn btn-success" (click)="onApproveAnswer(answer.id)">Approve</button>
+          <button type="button" class="btn btn-danger"(click)="onRejectAnswer(answer.id)">Reject</button>
+
+       </td>
+      </tr>
+      </tbody>
+   
+ </table>  
+ </div> 
+
+ <!-- <div>
+  <div class="answerDisplay" *ngFor="let answer of answers">
+  <div innerHTML="{{answer.message}}"></div>
+  
+
+   <div>
+    <button type="button" class="btn btn-success" (click)="onApproveAnswer(answer.id)">Approve</button>
+    <button type="button" class="btn btn-danger"(click)="onRejectAnswer(answer.id)">Reject</button>
+  </div> 
+</div>
+</div>   -->
