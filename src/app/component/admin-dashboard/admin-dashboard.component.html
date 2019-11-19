@@ -1,18 +1,17 @@
-
 <ul class="navbar navbar-dark bg-secondary">
-    
-    <a class="navbar-brand" (click)="getAllUsers()">Fundoo Notes App admin</a>
-    <a class="navbar-brand" (click)="onUnapproved()">Un Approved Answers</a>
-    <a class="navbar-brand" >User List</a>
-    <a class="navbar-brand" >Orders</a>
-    <a class="navbar-brand">
-      <button type="button"  class="btn btn-info" (click)="onLogout()">Logout</button>
-</a>
+
+  <a class="navbar-brand" (click)="getAllUsers()">Fundoo Notes App admin</a>
+  <a class="navbar-brand" (click)="onUnapproved()">Un Approved Answers</a>
+  <a class="navbar-brand">User List</a>
+  <a class="navbar-brand">Orders</a>
+  <a class="navbar-brand">
+    <button type="button" class="btn btn-info" (click)="onLogout()">Logout</button>
+  </a>
 
 </ul>
 
 <div class="container">
-<div class="row justify-content-center">
+  <div class="row justify-content-center">
     <div class="col-4">
       <div class="card" (click)="onAdvance()">
         <div class="card-body">
@@ -36,33 +35,30 @@
 
 </div>
 <div class="table-responsive-sm">
- 
- <table class="table table-bordered table-striped" id="user_table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">FirstName</th>
-      <th scope="col">LastName</th>
-      <th scope="col">Email</th>
-      <th scope="col">Service</th>
-    </tr>
-  </thead>
-  <tbody id="searchUser">
 
-  </tbody>
-</table>  
+  <table class="table table-bordered table-striped" id="user_table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Service</th>
+      </tr>
+    </thead>
+    <tbody id="searchUser">
+
+    </tbody>
+  </table>
 </div>
 
 
 <div class="align-items-center d-flex justify-content-center">
   <ul class="pagination">
-  <li class="page-item"><a class="page-link">Previous</a></li>
-  <li class="page-item"><a class="page-link" >1</a></li>
-  <li class="page-item"><a class="page-link" >2</a></li>
-  <li class="page-item"><a class="page-link">3</a></li>
-  <li class="page-item"><a class="page-link" >Next</a></li>
+    <li class="page-item"><a class="page-link">Previous</a></li>
+    <li class="page-item"><a class="page-link">1</a></li>
+    <li class="page-item"><a class="page-link">2</a></li>
+    <li class="page-item"><a class="page-link">3</a></li>
+    <li class="page-item"><a class="page-link">Next</a></li>
   </ul>
 </div>
-
-
-

@@ -14,12 +14,12 @@ export class LoginComponent implements OnInit {
   adminData: any = new AdminInterface();
   result: any;
 
-  constructor( private router: Router, public auth: AuthService) { }
+  constructor(private router: Router, public auth: AuthService) { }
 
   ngOnInit() {
-      $('#adminLogin').click(function (e) {
-        e.preventDefault();
-      });
+    $('#adminLogin').click(function (e) {
+      e.preventDefault();
+    });
 
   }
 
@@ -29,22 +29,22 @@ export class LoginComponent implements OnInit {
       email: $('#adminEmail').val(),
       password: $('#adminPassword').val()
     };
-  $.ajax({
-    url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin',
-    data: this.adminData,
-    type: 'POST',
-    dataType: 'json',
-    success: (response) => {
-      console.log(response);
-      this.router.navigate(['admin-dashboard']);
-      localStorage.setItem('id', response.id);
-      this.auth.sendToken(response.id);
-      //window.location.href = "http://localhost:4200/admin-dashboard";
+    $.ajax({
+      url: 'http://fundoonotes.incubation.bridgelabz.com/api/user/adminLogin',
+      data: this.adminData,
+      type: 'POST',
+      dataType: 'json',
+      success: (response) => {
+        console.log(response);
+        this.router.navigate(['admin-dashboard']);
+        localStorage.setItem('id', response.id);
+        this.auth.sendToken(response.id);
+        //window.location.href = "http://localhost:4200/admin-dashboard";
 
-    }, error: (error) => {
-      console.log(error);
-    }
+      }, error: (error) => {
+        console.log(error);
+      }
 
-  });
-}
+    });
+  }
 }
